@@ -1,9 +1,11 @@
 import NavBar from "./components/NavBar";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 
 function App() {
+  const { scrollY } = useScroll();
+
   return (
     <>
       <NavBar />
@@ -25,21 +27,22 @@ function App() {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              
             >
-            <a href="https://www.linkedin.com/in/alexis-hojas/" target="_blank">
-              
-              <FaLinkedin className="w-10 h-10 text-white hover:text-blue-600  hover:scale-110 transition-all" />
-            </a>
+              <a
+                href="https://www.linkedin.com/in/alexis-hojas/"
+                target="_blank"
+              >
+                <FaLinkedin className="w-10 h-10 text-white hover:text-blue-600  hover:scale-110 transition-all" />
+              </a>
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-            <a href="https://github.com/LexyysS" target="_blank">
-              <FaGithub className="w-10 h-10 text-white hover:text-black hover:scale-110 transition-all" />
-            </a>
+              <a href="https://github.com/LexyysS" target="_blank">
+                <FaGithub className="w-10 h-10 text-white hover:text-black hover:scale-110 transition-all" />
+              </a>
             </motion.button>
           </div>
         </div>
@@ -53,7 +56,14 @@ function App() {
           </h2>
 
           <div className="w-full flex mt-20 flex-wrap items-center hover:scale-105 transition-all">
-            <div className="md:w-2/5 w-full h-80 bg-azul-800 rounded-lg p-5 text-white shadow-lg flex flex-col justify-center">
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "linear" }}
+              className="md:w-2/5 w-full h-80 bg-azul-800 rounded-lg p-5 text-white shadow-lg flex flex-col justify-between"
+            >
+              <div>
               <h2 className="text-2xl font-bold">Sintomas de enfermedades</h2>
               <p className="text-sm mt-3">
                 Esta aplicación permite realizar diagnósticos de enfermedades
@@ -62,40 +72,63 @@ function App() {
                 diccionario de enfermedades que proporciona información sobre
                 causas, prevención y tratamientos.
               </p>
-              <div className="flex mt-2">
+              <div className="flex my-2">
                 <img src="reactLogo.png" className="w-10 h-10" />
                 <img src="tailwindLogo.png" className="w-10 h-10" />
               </div>
 
+              </div>
+              
+
               <a
                 href="https://symptocl.netlify.app"
                 target="_blank"
-                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 mt-5"
+                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 "
               >
                 Ver proyecto
               </a>
-            </div>
-
-            <div className="md:w-3/5 w-full h-full bg-morado-950 flex justify-center rounded-r-lg items-center p-2">
-              <img src="Sintomas.png" className="w-full h-full" />
-            </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="md:w-3/5  w-full h-full bg-[rgba(255,255,255,0.35] flex justify-center rounded-lg items-center p-2"
+            >
+              <img src="Sintomas.png" className="w-full h-full rounded-lg" />
+            </motion.div>
           </div>
 
           <div className="w-full flex mt-20 flex-wrap items-center hover:scale-105 transition-all">
-            <div className="md:w-3/5 w-full h-full bg-morado-950 flex justify-center rounded-l-lg items-center p-2">
-              <img src="Lavado.png" className="w-full h-full" />
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="md:w-3/5  w-full h-full bg-[rgba(255,255,255,0.35] flex justify-center rounded-lg items-center p-2"
+            >
+              <img src="Lavado.png" className="w-full h-full rounded-lg" />
+            </motion.div>
 
-            <div className="md:w-2/5 w-full h-80 bg-azul-800 rounded-lg p-5 text-white shadow-lg flex flex-col justify-center">
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "linear" }}
+              className="md:w-2/5 w-full h-80 bg-azul-800 rounded-lg p-5 text-white shadow-lg flex flex-col justify-between"
+            >
+              <div>
               <h2 className="text-2xl font-bold">Lavado de autos</h2>
               <p className="text-sm mt-3">
                 Landing Page sobre el servicio de lavado de autos. Utilizando
                 hooks y componentes para el diseño. Alertas , formularios y uso
                 de formsubmit para enviar datos de registro del usuario.
               </p>
-              <div className="flex mt-2">
+              <div className="flex my-2">
                 <img src="reactLogo.png" className="w-10 h-10" />
                 <img src="tailwindLogo.png" className="w-10 h-10" />
+              </div>
+
               </div>
 
               <a
@@ -105,7 +138,7 @@ function App() {
               >
                 Ver proyecto
               </a>
-            </div>
+            </motion.div>
           </div>
 
           <div className="grid gird-cols-1 md:grid-cols-2 mt-20 gap-4">
