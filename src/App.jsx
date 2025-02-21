@@ -16,16 +16,12 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { motion } from "motion/react";
 import Footer from "./components/Footer";
 import IconSkill from "./components/IconSkill";
+import { Suspense, lazy } from "react";
 
 function App() {
-  
-
   return (
     <>
       <NavBar />
-      {
-        //bg-gradient-to-br from-azul-500 to-morado-800
-      }
 
       <div
         id="inicio"
@@ -68,10 +64,17 @@ function App() {
             transition={{ duration: 1, ease: "easeInOut" }}
             className="md:w-2/5  w-full h-full flex justify-center rounded-lg items-center p-2"
           >
-            <img
-              src="GifSymptoCL.gif"
+            <video
               className="w-[250px] h-[400px] rounded-lg"
-            />
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="poster-sympto.jpg"
+            >
+              <source src="SymptoCL.mp4" type="video/mp4" />
+            </video>
           </motion.div>
 
           <motion.div
@@ -89,11 +92,9 @@ function App() {
                 recibir un diagnóstico estimado, interactuar con un chat de IA
                 para orientación en tiempo real y acceder a un diccionario
                 médico con información detallada sobre enfermedades.
-
               </p>
               <div className="flex my-2">
                 <TbBrandReactNative className="w-10 h-10 text-blue-400" />
-                
               </div>
             </div>
 
@@ -155,7 +156,17 @@ function App() {
             transition={{ duration: 1, ease: "easeInOut" }}
             className="md:w-3/5  w-full h-full flex justify-center rounded-lg items-center p-2"
           >
-            <img src="GifSintomas.gif" className="w-full h-full rounded-lg" />
+            <video
+              className="w-full h-full rounded-lg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              
+            >
+              <source src="SymptoWeb.mp4" type="video/mp4" />
+            </video>
           </motion.div>
         </div>
 
@@ -167,9 +178,56 @@ function App() {
             transition={{ duration: 1, ease: "easeInOut" }}
             className="md:w-3/5  w-full h-full bg-[rgba(255,255,255,0.35] flex justify-center rounded-lg items-center p-2"
           >
-            <img src="GifLavado.gif" className="w-full h-full rounded-lg" />
+            <video
+              className="w-full h-full rounded-lg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="Memorize.mp4" type="video/mp4" />
+            </video>
           </motion.div>
 
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "linear" }}
+            className="md:w-2/5 w-full h-80 bg-azul-800 rounded-lg p-5 text-white shadow-lg flex flex-col justify-between"
+          >
+            <div>
+              <h2 className="text-2xl font-bold">Memorizewords</h2>
+              <p className="text-sm mt-3">
+                MemorizeWords es una aplicación web para aprender palabras en
+                inglés de forma efectiva. Permite buscarlas manualmente o con
+                inteligencia artificial, mostrando traducciones, ejemplos y
+                significados. Además, incluye una actividad interactiva para
+                repasar y reforzar el aprendizaje.
+              </p>
+              <div className="flex my-2">
+                <SiReact className="w-10 h-10 text-blue-400" />
+                <SiTailwindcss className="w-10 h-10 text-blue-400" />
+              </div>
+            </div>
+
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a
+                href="https://memorizewords.netlify.app/"
+                target="_blank"
+                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 mt-5"
+              >
+                Ver proyecto
+              </a>
+            </motion.button>
+          </motion.div>
+        </div>
+
+        <div className="w-full flex mt-20 flex-wrap items-center  transition-all">
           <motion.div
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -203,6 +261,25 @@ function App() {
               </a>
             </motion.button>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="md:w-3/5  w-full h-full bg-[rgba(255,255,255,0.35] flex justify-center rounded-lg items-center p-2"
+          >
+            <video
+              className="w-full h-full rounded-lg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="Lavado.mp4" type="video/mp4" />
+            </video>
+          </motion.div>
         </div>
 
         <div className="grid gird-cols-1 md:grid-cols-2 mt-20 gap-4">
@@ -211,7 +288,12 @@ function App() {
             href="https://comprascarritoguitarla.netlify.app/"
             target="_blank"
           >
-            <img src="Carrito.png" className="w-full rounded-t-lg h-2/3" />
+            <img
+              src="Carrito.png"
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-t-lg h-2/3"
+            />
             <div className="flex flex-col p-5 w-full h-1/2">
               <h2 className="text-2xl font-bold ">Carrito de compras</h2>
               <p className="text-sm mt-3 ">
@@ -226,7 +308,12 @@ function App() {
             href="https://trackercalorias.netlify.app/"
             target="_blank"
           >
-            <img src="Calorias.png" className="w-full rounded-t-lg h-2/3" />
+            <img
+              src="Calorias.png"
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-t-lg h-2/3"
+            />
             <div className="flex flex-col p-5 w-full h-1/2">
               <h2 className="text-2xl font-bold ">Contador de calorias</h2>
               <p className="text-sm mt-3 ">
@@ -241,7 +328,12 @@ function App() {
             href="https://controlgastopresupuesto.netlify.app/"
             target="_blank"
           >
-            <img src="Gastos.png" className="w-full rounded-t-lg h-2/3" />
+            <img
+              src="Gastos.png"
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-t-lg h-2/3"
+            />
             <div className="flex flex-col p-5 w-full h-1/2">
               <h2 className="text-2xl font-bold ">Planificador de gastos</h2>
               <p className="text-sm mt-3 ">
@@ -256,7 +348,12 @@ function App() {
             href="https://propinaconsumo.netlify.app/"
             target="_blank"
           >
-            <img src="Comida.png" className="w-full rounded-t-lg h-2/3" />
+            <img
+              src="Comida.png"
+              loading="lazy"
+              decoding="async"
+              className="w-full rounded-t-lg h-2/3"
+            />
             <div className="flex flex-col p-5 w-full h-1/2">
               <h2 className="text-2xl font-bold ">Calculadora de Propinas</h2>
               <p className="text-sm mt-3 ">
@@ -268,7 +365,10 @@ function App() {
         </div>
       </div>
 
-      <div id="sobremi" className="bg-azul-950 w-full  mx-auto py-8 text-white mt-32 flex flex-col justify-center items-center gap-3">
+      <div
+        id="sobremi"
+        className="bg-azul-950 w-full  mx-auto py-8 text-white mt-32 flex flex-col justify-center items-center gap-3"
+      >
         <h2 className="text-3xl font-bold text-center text-white mt-3">
           Sobre mí
         </h2>
@@ -277,6 +377,8 @@ function App() {
             <img
               src="Perfil.jpeg"
               className="w-full h-full rounded-full border-4 border-blue-600"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -288,12 +390,13 @@ function App() {
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <p className="text-lg mt-5 p-5 ">
-              Hola, soy Alexis Hojas, tengo 23 años y desde pequeño me apasiona
-              la tecnología y la programación. Soy autodidacta y disfruto
-              trabajando en equipo, donde puedo compartir ideas y aprender de
-              los demás. Mi objetivo es seguir creciendo como desarrollador web
-              y crear soluciones innovadoras. Estoy siempre abierto a nuevos
-              desafíos y oportunidades para colaborar.
+              ¡Hola! Soy Alexis Hojas, un Desarrollador Full Stack de 23 años
+              apasionado por crear soluciones tecnológicas innovadoras y
+              centradas en el usuario. Actualmente, estoy cursando un Bootcamp
+              Full Stack Java en Coding Dojo, donde profundizo en tecnologías
+              como Spring Boot, APIs REST y arquitectura de microservicios,
+              complementando mi formación autodidacta en frontend con React,
+              TypeScript y Node.
             </p>
           </motion.div>
         </div>
