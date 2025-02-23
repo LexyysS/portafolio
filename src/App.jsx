@@ -16,7 +16,7 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { motion } from "motion/react";
 import Footer from "./components/Footer";
 import IconSkill from "./components/IconSkill";
-import { Suspense, lazy } from "react";
+
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
         className=" h-screen  gradient-background flex flex-col justify-center items-center "
       >
         <h1 className="text-5xl font-bold text-white mb-5">
-          Desarrollador Web
+          Full Stack Developer
         </h1>
         <h2 className="text-8xl text-white font-bold text-center">
           Alexis Hojas
