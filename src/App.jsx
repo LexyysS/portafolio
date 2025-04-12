@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import {
@@ -9,6 +10,8 @@ import {
   SiReact,
   SiTailwindcss,
   SiMysql,
+  SiSpringboot,
+  SiJsonwebtokens,
 } from "react-icons/si";
 import { FaJava, FaNode } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
@@ -16,7 +19,6 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { motion } from "motion/react";
 import Footer from "./components/Footer";
 import IconSkill from "./components/IconSkill";
-
 
 function App() {
   return (
@@ -55,6 +57,100 @@ function App() {
         >
           Proyectos
         </h2>
+
+        <div className="w-full flex mt-20 flex-wrap items-center  transition-all">
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "linear" }}
+            className="md:w-2/5 w-full h-80 bg-azul-800 rounded-lg p-5 text-white shadow-lg flex flex-col justify-between"
+          >
+            <div>
+              <h2 className="text-2xl font-bold">TruequeMundo</h2>
+              <p className="text-sm mt-3">
+                Plataforma web de trueques que permite a los usuarios
+                intercambiar productos que ya no utilizan por otros que
+                necesitan, fomentando el reciclaje y la economía colaborativa.
+              </p>
+              <div className="flex my-3 gap-2">
+                <FaJava className="w-10 h-10 text-blue-400" />
+                <SiSpringboot className="w-10 h-10 text-blue-400" />
+                <SiReact className="w-10 h-10 text-blue-400" />
+                <SiTailwindcss className="w-10 h-10 text-blue-400" />
+                <SiMysql className="w-10 h-10 text-blue-400" />
+                <SiJsonwebtokens className="w-10 h-10 text-blue-400" />
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1 text-sm">
+              <div className="flex gap-1">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full"
+                >
+                  <a
+                    href="https://github.com/LexyysS/TruequeMundo---Backend"
+                    target="_blank"
+                    className="w-full p-1 cursor-pointer bg-azul-900 rounded-3xl flex gap-1 justify-center items-center text-white hover:bg-morado-700 "
+                  >
+                    <FaGithub className="w-6 h-6" />
+                    Backend
+                  </a>
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full"
+                >
+                  <a
+                    href="https://github.com/LexyysS/TruequeMundo-Frontend"
+                    target="_blank"
+                    className="w-full p-1 cursor-pointer bg-azul-900 rounded-3xl flex gap-1 justify-center items-center text-white hover:bg-morado-700 "
+                  >
+                    <FaGithub className="w-6 h-6" />
+                    Frontend
+                  </a>
+                </motion.button>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
+              >
+                <a
+                  href="https://truequemundos.netlify.app/"
+                  target="_blank"
+                  className="p-1 gap-1 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 "
+                >
+                  <ArrowTopRightOnSquareIcon className="w-6 h-6" />
+                  Ver proyecto
+                </a>
+              </motion.button>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="md:w-3/5  w-full h-full flex justify-center rounded-lg items-center p-2"
+          >
+            <video
+              className="w-full h-full rounded-lg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source src="VideoTruequeMundo.mp4" type="video/mp4" />
+            </video>
+          </motion.div>
+        </div>
 
         <div className="w-full flex mt-20 flex-wrap items-center  transition-all">
           <motion.div
@@ -97,19 +193,9 @@ function App() {
                 <TbBrandReactNative className="w-10 h-10 text-blue-400" />
               </div>
             </div>
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="https://symptocl.netlify.app"
-                target="_blank"
-                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 "
-              >
-                Ver proyecto
-              </a>
-            </motion.button>
+            <span className="text-sm p-2 w-1/2 rounded-lg bg-azul-900 flex justify-center items-center">
+              Pronto disponible en Play Store
+            </span>
           </motion.div>
         </div>
 
@@ -136,18 +222,37 @@ function App() {
               </div>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="https://symptocl.netlify.app"
-                target="_blank"
-                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 "
+            <div className="flex gap-2 text-sm">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
               >
-                Ver proyecto
-              </a>
-            </motion.button>
+                <a
+                  href="https://github.com/LexyysS/sympto-cl"
+                  target="_blank"
+                  className="w-full p-1 bg-azul-900 gap-1 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 "
+                >
+                  <FaGithub className="w-6 h-6" />
+                  Repositorio
+                </a>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
+              >
+                <a
+                  href="https://symptocl.netlify.app"
+                  target="_blank"
+                  className="w-full p-1 bg-azul-900 rounded-3xl flex gap-1 justify-center items-center text-white hover:bg-morado-700 "
+                >
+                  <ArrowTopRightOnSquareIcon className="w-6 h-6" />
+                  Ver proyecto
+                </a>
+              </motion.button>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -163,7 +268,6 @@ function App() {
               loop
               playsInline
               preload="metadata"
-              
             >
               <source src="SymptoWeb.mp4" type="video/mp4" />
             </video>
@@ -212,18 +316,37 @@ function App() {
               </div>
             </div>
 
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="https://memorizewords.netlify.app/"
-                target="_blank"
-                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 mt-5"
+            <div className="flex gap-2 text-sm">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
               >
-                Ver proyecto
-              </a>
-            </motion.button>
+                <a
+                  href="https://github.com/LexyysS/MemorizeWords"
+                  target="_blank"
+                  className="w-full p-1 gap-1 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700"
+                >
+                  <FaGithub className="w-6 h-6" />
+                  Repositorio
+                </a>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
+              >
+                <a
+                  href="https://memorizewords.netlify.app/"
+                  target="_blank"
+                  className="w-full p-1 bg-azul-900 rounded-3xl flex gap-1 justify-center items-center text-white hover:bg-morado-700 "
+                >
+                  <ArrowTopRightOnSquareIcon className="w-6 h-6" />
+                  Ver proyecto
+                </a>
+              </motion.button>
+            </div>
           </motion.div>
         </div>
 
@@ -247,19 +370,37 @@ function App() {
                 <SiTailwindcss className="w-10 h-10 text-blue-400" />
               </div>
             </div>
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="https://lavadomrgreen.netlify.app/"
-                target="_blank"
-                className="py-1 px-4 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700 mt-5"
+            <div className="flex gap-2 text-sm">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
               >
-                Ver proyecto
-              </a>
-            </motion.button>
+                <a
+                  href="https://github.com/LexyysS/lavado-autos"
+                  target="_blank"
+                  className="w-full p-1 gap-1 bg-azul-900 rounded-3xl flex justify-center items-center text-white hover:bg-morado-700"
+                >
+                  <FaGithub className="w-6 h-6" />
+                  Repositorio
+                </a>
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full"
+              >
+                <a
+                  href="https://lavadomrgreen.netlify.app/"
+                  target="_blank"
+                  className="w-full p-1 bg-azul-900 rounded-3xl flex gap-1 justify-center items-center text-white hover:bg-morado-700 "
+                >
+                  <ArrowTopRightOnSquareIcon className="w-6 h-6" />
+                  Ver proyecto
+                </a>
+              </motion.button>
+            </div>
           </motion.div>
 
           <motion.div
@@ -392,10 +533,10 @@ function App() {
             <p className="text-lg mt-5 p-5 ">
               ¡Hola! Soy Alexis Hojas, un Desarrollador Full Stack de 23 años
               apasionado por crear soluciones tecnológicas innovadoras y
-              centradas en el usuario. Actualmente, estoy cursando un Bootcamp
+              centradas en el usuario. Actualmente, estoy terminando un Bootcamp
               Full Stack Java en Coding Dojo, donde profundizo en tecnologías
               como Spring Boot, APIs REST y arquitectura de microservicios,
-              complementando mi formación autodidacta en frontend con React,
+              complementando mi formación autodidacta en frontend con React, JavaScript,
               TypeScript y Node.
             </p>
           </motion.div>
@@ -409,7 +550,7 @@ function App() {
         >
           Habilidades
         </h2>
-        <div className="w-[600px] h-[450px] justify-center items-center grid grid-cols-4 gap-5 ">
+        <div className="max-w-4xl md:w-[600px] h-[450px] justify-center items-center grid grid-cols-4 gap-5 ">
           <IconSkill name="HTML">
             <SiHtml5 className="w-20 h-20 text-azul-700" />
           </IconSkill>
@@ -433,6 +574,9 @@ function App() {
           </IconSkill>
           <IconSkill name="Java">
             <FaJava className="w-20 h-20 text-azul-700" />
+          </IconSkill>
+          <IconSkill name="Spring Boot">
+            <SiSpringboot className="w-20 h-20 text-azul-700" />
           </IconSkill>
           <IconSkill name="Node">
             <FaNode className="w-20 h-20 text-azul-700" />
